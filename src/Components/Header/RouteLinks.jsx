@@ -11,6 +11,7 @@ import Profile from '../UserProfile/Profile';
 import Order from '../UserProfile/Order';
 import ShowCart from '../Cart/ShowCart';
 import PersonalInfo from '../UserProfile/PersonalInfo';
+import Store from '../pages/Store';
 
 const RouteLinks = () => {
 
@@ -32,6 +33,9 @@ const RouteLinks = () => {
               <Route path='giftcard' element={<Order/>}/>
             </Route>
             <Route path='/cart' element={<ShowCart/>}/>
+            <Route path='/store' element={<Store/>}>
+              
+            </Route>
         </Routes>
 
     </div>

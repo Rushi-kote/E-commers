@@ -68,7 +68,7 @@ const Login = () => {
         console.log("response.data.UserID=>",response.data.UserID);
         SetUser({
           status:true,
-          UserId:response.data.UserID,
+          UserID:response.data.UserID,
           UserName:response.data.UserName
         })
         console.log("user",user);

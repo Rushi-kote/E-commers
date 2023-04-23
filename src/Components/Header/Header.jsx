@@ -13,7 +13,7 @@ const Header = () => {
   // const isAuthPage = location.pathname === '/signUp' || location.pathname === '/logIn';
   const [user,SetUser] = useState({
     status:false,
-    UserId:null,
+    UserID:null,
     UserName:null,
     UserPhone:null, 
     UserAdd:null, 
