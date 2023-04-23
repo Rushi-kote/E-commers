@@ -3,7 +3,7 @@ import "./../Styles/CartItem.css";
 import { useEffect, useContext} from 'react';
 import UserContext from '../Context/UserContext';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -13,9 +13,6 @@ const CartItem = ({Item,index}) => {
   const [Qty,setQty] = useState(Item.quantity);
   const {user} = useContext(UserContext);
 
-  const QtyUpdated=()=>{
-
-  }
 
   useEffect(()=>{
     const Data = {
@@ -38,6 +35,7 @@ const CartItem = ({Item,index}) => {
         console.log(error);
         toast.error('failed to update Item Qty');
       });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   },[Qty]);
 
 

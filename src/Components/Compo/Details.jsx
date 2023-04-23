@@ -25,6 +25,7 @@ const Details = () => {
         console.log("product", Item);
       })
       .catch((err) => console.log(err));
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
 

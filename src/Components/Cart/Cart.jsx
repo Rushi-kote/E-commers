@@ -36,6 +36,7 @@ const Cart = () => {
             console.log("CartItems After cart req ==> ",cartItems);
         })
         .catch();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
   return (
     <div className='MainCartContainer'>

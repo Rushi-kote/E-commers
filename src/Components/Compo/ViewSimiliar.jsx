@@ -29,6 +29,7 @@ const ViewSimiliar = ({category,Id}) => {
                 console.log(err);
               });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
     return (

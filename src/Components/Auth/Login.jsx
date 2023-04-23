@@ -51,6 +51,7 @@ const Login = () => {
         navigate('/user/profile');
       }
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   
   const handleChange = (event)=>{
