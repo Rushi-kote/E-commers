@@ -14,7 +14,7 @@ const ProfileRow = () => {
     if(user.status){
       navigate('/user');
     }else{
-      navigate("/signUp");
+      navigate("/SignIn");
     }
   }
 

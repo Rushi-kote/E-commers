@@ -19,11 +19,12 @@ const CartItem = ({Item,index}) => {
 
   useEffect(()=>{
     const Data = {
-      userID:user.UserId,
+      userID:user.UserID,
       productID:Item._id,
       quantity:Qty,
       price:Item.price
     }
+    console.log("Data of cartItem body",Data);
     axios.post("http://localhost:3001/cart/addItem",{
       headers: {
           'Content-Type': 'application/json',
@@ -45,7 +46,15 @@ const CartItem = ({Item,index}) => {
     console.log("Before setQty call prev Qty==>",Qty);
     setQty(Qty+1);
     console.log("Before qtyUpdate call updated Qty==>",Qty);
-    QtyUpdated();
+    // QtyUpdated();
+  }
+
+  const handleClikDec = () =>{
+    console.log("user",user);
+    console.log("Before setQty call prev Qty==>",Qty);
+    setQty(Qty-1);
+    console.log("Before qtyUpdate call updated Qty==>",Qty);
+    // QtyUpdated();
   }
 
   return (
@@ -56,7 +65,7 @@ const CartItem = ({Item,index}) => {
       <div className="itemTitile">{Item.title}</div>
       <h3 className="gridItem1">{Item.price}</h3>
       <div className="btnQty gridItem1">
-        <button className="dec">-</button>
+        <button className="dec" onClick={handleClikDec}>-</button>
         <span className="ItemQty">{Qty}</span>
         <button className="inc" onClick={handleClikInc}>
           +

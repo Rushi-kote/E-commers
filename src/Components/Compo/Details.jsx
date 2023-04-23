@@ -8,10 +8,11 @@ import UserContext from "../Context/UserContext";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from "react-router-dom";
+import ViewSimiliar from "./ViewSimiliar";
 
 const Details = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState([{ rating: { rate: 4 } }]);
+  const [Item, setItem] = useState([{ rating: { rate: 4 } }]);
   const {user} = useContext(UserContext);
   const navigate = useNavigate();
   // console.log(product.rating["rate"]);
@@ -20,25 +21,25 @@ const Details = () => {
       .post(`http://localhost:3001/products/${id}`)
       .then((res) => {
         // console.log(res.data);
-        setProduct(...[], res.data.product);
-        console.log("product", product);
+        setItem(...[], res.data.product);
+        console.log("product", Item);
       })
       .catch((err) => console.log(err));
   }, [id]);
 
 
   const addToCart =()=>{
+    console.log("user add item in cart",user);
     if(user.status){
       const Data = {
-        userID:user.UserId,
+        userID:user.UserID,
         productID:id,
-        quantity:1,
-        price:product.price
+        quantity:1
       }
+      console.log("Data",Data);
       axios.post("http://localhost:3001/cart/addItem",{
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'JWT fefege...'
+            'Content-Type': 'application/json'
         },
         Data
       }).then((res)=>{
@@ -55,10 +56,10 @@ const Details = () => {
 
   return (
     <div>
-      {product && (
+      {Item && (
         <div className="flex-items">
           <div className="image">
-            <img className="img" src={`${product.image}`} alt="cards"></img>
+            <img className="img" src={`${Item.image}`} alt="cards"></img>
           </div>
           <div className="addtoCartDiv">
             <button className="addtoCartButton" onClick={addToCart}>
@@ -67,12 +68,12 @@ const Details = () => {
             </button>
           </div>
           <div className="details">
-            <h4>{product.title}</h4> <br />
-            <p>{product.description}</p> <br />
+            <h4>{Item.title}</h4> <br />
+            <p>{Item.description}</p> <br />
             <div className="rating">
-              {product.rating && <ReactStars {...{ size: 30, edit: false }} />}
+              {Item.rating && <ReactStars {...{ size: 30, edit: false }} />}
             </div>{" "}
-            <br />${product.price}
+            <br />${Item.price}
           </div>
         </div>
       )}
@@ -82,7 +83,9 @@ const Details = () => {
                 closeOnClick
                 rtl={false}
                 theme="light"
-            />
+      />
+      <br /><br /><br />
+      <ViewSimiliar category={Item.category} productID={id}/>
     </div>
   );
 };

@@ -35,6 +35,22 @@ const Login = () => {
       });
     }
     check.current = true;
+
+    const token = localStorage.getItem("Token");
+
+    const Data = {
+      headers: {
+        'Authorization': token
+      }
+    }
+    axios.get("http://localhost:3001/auth/verify",Data).then((res)=>{
+
+      console.log("res.data",res.status);
+      if(res.status===200){
+        SetUser(res.data)
+        navigate('/user/profile');
+      }
+    })
   },[]);
   
   const handleChange = (event)=>{

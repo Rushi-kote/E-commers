@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 
 const Card = ({ card, index }) => {
+
   const navigate = useNavigate();
   function cardClik(ele) {
     // console.log("ele.productName ",ele.productName);
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     navigate(`/products/${ele.category}/${ele._id}`);
   }
 
