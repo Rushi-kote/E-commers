@@ -3,7 +3,7 @@ import "./../Styles/CartItem.css";
 import { useEffect, useContext} from 'react';
 import UserContext from '../Context/UserContext';
 import axios from 'axios';
-import {ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 

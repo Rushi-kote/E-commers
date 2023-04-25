@@ -3,7 +3,7 @@
     width: auto;
     height: auto;
     flex-wrap: wrap;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     gap: 25px;
     text-align: center;

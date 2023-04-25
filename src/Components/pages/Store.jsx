@@ -55,6 +55,7 @@ const Store = () => {
             setNoOfItems(res.data.Products.length);
         })
         .catch()
+        // eslint-disable-next-line
     },[Show,Price])
 
   return (

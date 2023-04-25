@@ -4,7 +4,7 @@ import CartItem from './CartItem';
 import "./../Styles/Cart.css";
 import axios from 'axios';
 import UserContext from '../Context/UserContext';
-import {ToastContainer, toast } from 'react-toastify';
+import {ToastContainer } from 'react-toastify';
 
 // const navigate = useNavigate();
 // { 
