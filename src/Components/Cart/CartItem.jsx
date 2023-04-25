@@ -3,7 +3,7 @@ import "./../Styles/CartItem.css";
 import { useEffect, useContext} from 'react';
 import UserContext from '../Context/UserContext';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import {ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -50,13 +50,19 @@ const CartItem = ({Item,index}) => {
   const handleClikDec = () =>{
     console.log("user",user);
     console.log("Before setQty call prev Qty==>",Qty);
-    setQty(Qty-1);
+    if(Qty>1){
+      setQty(Qty-1);
+    }else{
+      toast.warn('Item will be removed if Quntiry become zero');
+      console.log("toastwatn");
+    }
     console.log("Before qtyUpdate call updated Qty==>",Qty);
     // QtyUpdated();
   }
 
   return (
     <React.Fragment key={index}>
+   
       <div className="imgContainer">
         <img className="ItemImg" src={Item.image} alt="Itemimg" />
       </div>

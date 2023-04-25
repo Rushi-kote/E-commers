@@ -4,6 +4,8 @@ import CartItem from './CartItem';
 import "./../Styles/Cart.css";
 import axios from 'axios';
 import UserContext from '../Context/UserContext';
+import {ToastContainer, toast } from 'react-toastify';
+
 // const navigate = useNavigate();
 // { 
 //     image:"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -55,6 +57,7 @@ const Cart = () => {
                     Item ? <CartItem Item={Item} index={index}/> : <></>
                 )
             }
+            <ToastContainer/>
         </div>
     </div>
   )

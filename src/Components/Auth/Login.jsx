@@ -43,7 +43,7 @@ const Login = () => {
         'Authorization': token
       }
     }
-    axios.get("https://e-commersbackend.onrender.com//auth/verify",Data).then((res)=>{
+    axios.get("https://e-commersbackend.onrender.com/auth/verify",Data).then((res)=>{
 
       console.log("res.data",res.status);
       if(res.status===200){
