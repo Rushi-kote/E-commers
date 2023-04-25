@@ -8,11 +8,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 37px;
     gap: 10px;
     flex-basis: 50%;
-    height: 80vh;
-    position: absolute;
+    height: auto;
+    position: relative;
     width: 100%;
     /* background-color: aliceblue; */
 }

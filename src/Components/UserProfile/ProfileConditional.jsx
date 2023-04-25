@@ -13,6 +13,7 @@ const ProfileConditional = () => {
 
     const onClickSignOut = () =>{
       SetUser({status:false});
+      localStorage.removeItem("Token");
       navigate('/SignIn');
     }
 
