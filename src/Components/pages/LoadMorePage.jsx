@@ -10,7 +10,7 @@ const LoadMorePage = () => {
   const [limit,setLimit] = useState(6);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/?limit=${limit}`).then((response) => {
+    axios.get(`https://e-commersbackend.onrender.com/?limit=${limit}`).then((response) => {
       console.log("response ",response);
       setCards(response.data.allData);
     }).catch((err)=>{

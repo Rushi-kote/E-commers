@@ -23,7 +23,7 @@ const Cart = () => {
             quantity:1
         };
 
-        axios.post("http://localhost:3001/cart",{
+        axios.post("https://e-commersbackend.onrender.com/cart",{
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'JWT fefege...'

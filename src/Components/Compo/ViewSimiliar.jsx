@@ -11,7 +11,7 @@ const ViewSimiliar = ({category,Id}) => {
         console.log("category",category);
         console.log("ItemCat!==undefined",ItemCat!==undefined);
         if(ItemCat!==undefined){
-            axios.get(`http://localhost:3001/${ItemCat}`)
+            axios.get(`https://e-commersbackend.onrender.com/${ItemCat}`)
             .then((response) => {
                 console.log("response ", response);
                 setItems(response.data.allData);
@@ -20,7 +20,7 @@ const ViewSimiliar = ({category,Id}) => {
                 console.log(err);
               });
         }else{
-            axios.get(`http://localhost:3001/fasion`)
+            axios.get(`https://e-commersbackend.onrender.com/fasion`)
             .then((response) => {
                 console.log("response ", response);
                 setItems(response.data.allData);

@@ -3,8 +3,10 @@ import iphone from "./../../Images/iphone_6_plus.png";
 import "./../Styles/Store.css";
 import { Slider } from '@mui/material';
 import axios from 'axios';
-import Card from './Card';
+// import Card from './Card';
 import queryString from 'query-string';
+import Spiner from "../Compo/Spiner";
+const Card = React.lazy(() => import("./Card"));
 
 
 const Store = () => {
@@ -46,16 +48,17 @@ const Store = () => {
         let string = queryString.stringify(queryParams).replace("%5B",'[')
         string = string.replace("%5D",']')
         console.log(string);
-        axios.get(`http://localhost:3001/store?${string}`)
+        axios.get(`https://e-commersbackend.onrender.com/store?${string}`)
         .then((res)=>{
             // console.log(res);
             setCards(res.data.Products);
+            setNoOfItems(res.data.Products.length);
         })
         .catch()
     },[Show,Price])
 
   return (
-    <>
+    <div className="StoreContainer">
         <div className="StoreCarouse2">
             <img src={`${iphone}`} className="" alt="iphone" />
             <h3>iPhone 6 Plus</h3>
@@ -89,13 +92,17 @@ const Store = () => {
         <div className="MainContainer">
             <div className="flex-containerLoadMore">
             {
+             
                 cards.map((ele, index) => {
-                    return <Card card={ele} key={index} />;
-                })
+                    return( 
+                    <React.Suspense fallback={<Spiner />}>
+                      <Card card={ele} key={index} />
+                    </React.Suspense>)
+                  })
             }
         </div>
     </div>
-    </>
+    </div>
   )
 }
 

@@ -5,6 +5,7 @@ import Navigation from './Navigation';
 import RouteLinks from './RouteLinks';
 import UserContext from '../Context/UserContext';
 import { useState } from 'react';
+import Footer from './Footer';
 // import { useLocation } from "react-router-dom";
 
 
@@ -28,6 +29,7 @@ const Header = () => {
         <Navigation/>
         <RouteLinks/>
       </UserContext.Provider>
+        <Footer/>
     </div>
   )
 }
